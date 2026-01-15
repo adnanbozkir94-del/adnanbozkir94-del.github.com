@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Şiir Sitesi</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #b6e7b6; /* açık yeşil */
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #a3d9a3;
+}
+
+#search {
+    padding: 8px;
+    width: 220px;
+    color: gray;
+}
+
+#openPoem {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+}
+
+.poem {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+}
+
+.poem h2 {
+    color: red; /* şiir başlıkları */
+}
+
+pre {
+    white-space: pre-wrap;
+    font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <input type="text" id="search" placeholder="Şiir ara">
+    <a href="#bugun" id="openPoem">Hemen şiiri aç</a>
+</header>
+
+<div class="container">
+
+<h1 id="bugun">📜 Bugünün Şiiri</h1>
+<div id="todayPoem"></div>
+
+<hr>
+
+<h1>Tüm Şiirler</h1>
+<div id="poemList"></div>
+
+</div>
+
+<script>
+// TAM METİN – TELİF SÜRESİ DOLMUŞ ŞİİRLER
+
+const poems = [
+{
+title: "Namık Kemal – Vatan Şarkısı",
+text: `Vatanın bağrına düşman dayamış hançerini;
+Yok mudur kurtaracak bahtı kara mâderini?
+Bulunur kurtaracak bahtı kara mâderini,
+Bulunur kurtaracak bahtı kara mâderini.
+
+Vatanın bağrına düşman dayamış hançerini;
+Yok mudur kurtaracak bahtı kara mâderini!`
+},
+{
+title: "Ziya Paşa – Terkib-i Bend",
+text: `Âyinesi iştir kişinin, lâfa bakılmaz;
+Şahsın görünür rütbe-i aklı eserinde.
+
+Nush ile uslanmayanı etmeli tekdir;
+Tekdir ile uslanmayanın hakkı kötektir.`
+},
+{
+title: "Şinasi – Münâcât",
+text: `Ey cemâlinle ferah-nâk olan erbâb-ı nazar,
+Lütfunun cilvesidir her ne kadar varsa eser.
+Zâtına mahsustur ulûhiyet senin,
+Yoktur eşi, benzeri ey Rabb-i Kerîm.`
+},
+{
+title: "Mehmet Âkif Ersoy – Cenk Şarkısı",
+text: `Ben ezelden beridir hür yaşadım, hür yaşarım;
+Hangi çılgın bana zincir vuracakmış? Şaşarım!
+Kükremiş sel gibiyim; bendimi çiğner, aşarım;
+Yırtarım dağları, enginlere sığmam, taşarım!`
+},
+{
+title: "Tevfik Fikret – Han-ı Yağma",
+text: `Yiyin efendiler yiyin, bu han-ı iştihâ sizin,
+Doyunca, tıksırınca, çatlayıncaya kadar yiyin!
+Bu sofracık, efendiler — ki iltikaama muntazır —
+Huzurunuzda titriyor, bu milletin hayatıdır.`
+}
+];
+
+// BUGÜNÜN ŞİİRİ (rastgele)
+const today = poems[Math.floor(Math.random() * poems.length)];
+document.getElementById("todayPoem").innerHTML = `
+<div class="poem">
+    <h2>${today.title}</h2>
+    <pre>${today.text}</pre>
+</div>
+`;
+
+// TÜM ŞİİRLERİ YAZDIR
+const poemList = document.getElementById("poemList");
+
+function renderPoems(list) {
+    poemList.innerHTML = "";
+    list.forEach(p => {
+        poemList.innerHTML += `
+        <div class="poem">
+            <h2>${p.title}</h2>
+            <pre>${p.text}</pre>
+        </div>
+        `;
+    });
+}
+
+renderPoems(poems);
+
+// ARAMA
+document.getElementById("search").addEventListener("input", function () {
+    const value = this.value.toLowerCase();
+    const filtered = poems.filter(p =>
+        p.title.toLowerCase().includes(value) ||
+        p.text.toLowerCase().includes(value)
+    );
+    renderPoems(filtered);
+});
+</script>
+
+</body>
+</html>
