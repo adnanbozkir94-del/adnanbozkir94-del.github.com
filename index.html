@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Şiir Sitesi</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #b6e7b6;
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #a3d9a3;
+}
+
+#search {
+    padding: 8px;
+    width: 220px;
+    color: gray;
+}
+
+#openPoem {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+}
+
+.poem {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+}
+
+.poem h2 {
+    color: red;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <input type="text" id="search" placeholder="Şiir ara">
+    <a href="#bugun" id="openPoem">Hemen şiiri aç</a>
+</header>
+
+<div class="container">
+
+<h1 id="bugun">📜 Bugünün Şiiri</h1>
+<div id="todayPoem"></div>
+
+<hr>
+
+<h1>Tüm Şiirler</h1>
+<div id="poemList"></div>
+
+</div>
+
+<script>
+// TELİF SÜRESİ DOLMUŞ ŞAİRLER
+const poems = [
+{
+title: "Mehmet Âkif Ersoy – Bülbül",
+text: `Eşin var âşiyânın var, bahârın var ki beklerdin;
+Kıyâmetler koparmak neydi ey bülbül, nedir derdin?`
+},
+{
+title: "Namık Kemal – Vatan Şarkısı",
+text: `Vatanın bağrına düşman dayamış hançerini;
+Yok mudur kurtaracak bahtı kara mâderini?`
+},
+{
+title: "Tevfik Fikret – Sis",
+text: `Bir devr-i zulmetin siyah renginde bir sisin
+Altında inliyor bu şehir, bu diyâr-ı kin…`
+},
+{
+title: "Ziya Paşa – Terkib-i Bend",
+text: `Âyinesi iştir kişinin, lâfa bakılmaz;
+Şahsın görünür rütbe-i aklı eserinde.`
+},
+{
+title: "Şinasi – Münacaat",
+text: `Ey cemâlinle ferah-nâk olan erbâb-ı nazar,
+Lütfunun cilvesidir her ne kadar varsa eser.`
+}
+];
+
+// BUGÜNÜN ŞİİRİ (rastgele)
+const today = poems[Math.floor(Math.random() * poems.length)];
+document.getElementById("todayPoem").innerHTML = `
+<div class="poem">
+    <h2>${today.title}</h2>
+    <pre>${today.text}</pre>
+</div>
+`;
+
+// TÜM ŞİİRLER
+const poemList = document.getElementById("poemList");
+
+function renderPoems(list) {
+    poemList.innerHTML = "";
+    list.forEach(p => {
+        poemList.innerHTML += `
+        <div class="poem">
+            <h2>${p.title}</h2>
+            <pre>${p.text}</pre>
+        </div>
+        `;
+    });
+}
+
+renderPoems(poems);
+
+// ARAMA
+document.getElementById("search").addEventListener("input", function () {
+    const value = this.value.toLowerCase();
+    const filtered = poems.filter(p =>
+        p.title.toLowerCase().includes(value) ||
+        p.text.toLowerCase().includes(value)
+    );
+    renderPoems(filtered);
+});
+</script>
+
+</body>
+  </html>
