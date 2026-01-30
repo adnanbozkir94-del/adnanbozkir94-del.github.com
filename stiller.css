@@ -1,0 +1,13 @@
+html, body, #renderCanvas {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #87CEEB 0%, #d0f0ff 100%);
+}
+
+#renderCanvas {
+  display: block;
+  touch-action: none;
+}
