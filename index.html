@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK Hub | Uygulama Arşivi</title>
+    <style>
+        /* Temiz ve Modern Renk Paleti */
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #2ecc71; /* Sade yeşil */
+            --text-main: #ffffff;
+            --text-dim: #b3b3b3;
+            --border: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigasyon */
+        nav {
+            background-color: var(--surface-color);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+        }
+
+        /* İçerik Alanı */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* APK Listesi */
+        .apk-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .apk-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .apk-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.01);
+        }
+
+        .apk-image {
+            width: 70px;
+            height: 70px;
+            background-color: #2a2a2a;
+            border-radius: 15px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .apk-details {
+            flex-grow: 1;
+        }
+
+        .apk-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .apk-meta {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* İndirme Butonu */
+        .download-action {
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        .download-action:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-dim);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 600px) {
+            .apk-card { flex-direction: column; text-align: center; }
+            .apk-image { margin: 0 0 15px 0; }
+            .download-action { width: 100%; margin-top: 15px; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="brand">APK PORTAL</div>
+    <div style="color: var(--text-dim); font-size: 14px;">Güvenli Kurulum Dosyaları</div>
+</nav>
+
+<div class="container">
+    <div class="apk-list">
+
+        <div class="apk-card">
+            <div class="apk-image">🧱</div>
+            <div class="apk-details">
+                <div class="apk-name">Minecraft PE</div>
+                <div class="apk-meta">Versiyon: 1.20.0 • Boyut: 250 MB • .apk</div>
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=1kHJTDTdlvvNQEUyK0RwuOZbZFp34iDTT" class="download-action">DOSYAYI İNDİR</a>
+        </div>
+
+        <div class="apk-card">
+            <div class="apk-image">🕹️</div>
+            <div class="apk-details">
+                <div class="apk-name">Roblox</div>
+                <div class="apk-meta">Versiyon: Güncel • Boyut: 160 MB • .apk</div>
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=16tZq3dsyVozwc2lWlT9_yDTw74pz5AKk" class="download-action">DOSYAYI İNDİR</a>
+        </div>
+
+        <div class="apk-card">
+            <div class="apk-image">⚡</div>
+            <div class="apk-details">
+                <div class="apk-name">Magisk Manager</div>
+                <div class="apk-meta">Versiyon: v26.1 • Boyut: 12 MB • .apk</div>
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=10HE3XxFC_RdSNm0G1UTsWpGsGymCn6C0" class="download-action">DOSYAYI İNDİR</a>
+        </div>
+
+        <div class="apk-card">
+            <div class="apk-image">💧</div>
+            <div class="apk-details">
+                <div class="apk-name">Shizuku</div>
+                <div class="apk-meta">Versiyon: Son Sürüm • Boyut: 5 MB • .apk</div>
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=1_6JlACzXx727f1lSHDa4i_fyvch__7p1" class="download-action">DOSYAYI İNDİR</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 APK Portal. Tüm dosyalar taramadan geçirilmiştir.
+</footer>
+
+</body>
+  </html>
