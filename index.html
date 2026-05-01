@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FenerNews | Taraftarın Sesi</title>
+    <style>
+        :root {
+            --fener-mavi: #002366;
+            --fener-sari: #fedd00;
+            --kirmizi: #cc0000;
+            --beyaz: #ffffff;
+            --arka-plan: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: var(--arka-plan);
+        }
+
+        header {
+            background-color: var(--fener-mavi);
+            color: var(--fener-sari);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 4px solid var(--fener-sari);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Puan Tablosu Bölümü */
+        .standings-section {
+            background: white;
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .standings-table th {
+            background: var(--fener-mavi);
+            color: var(--fener-sari);
+            padding: 10px;
+        }
+
+        .standings-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .fb-row { background-color: rgba(254, 221, 0, 0.1); font-weight: bold; }
+
+        /* Haber Kartları */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+
+        .card-body { padding: 15px; }
+
+        .tag { background: var(--kirmizi); color: white; padding: 3px 8px; font-size: 11px; border-radius: 5px; }
+
+        .card-title { font-size: 18px; margin: 10px 0; color: var(--fener-mavi); }
+
+        .card-text { font-size: 14px; color: #555; line-height: 1.4; }
+
+        .breaking { background: var(--kirmizi); color: white; padding: 8px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header><h1>FENER NEWS</h1></header>
+
+<div class="breaking">
+    <marquee>SON DAKİKA: Archie Brown, Oosterwolde ve Nene için 59 Milyon Euro'luk dev teklif! • Fenerbahçe, Nicolas Jackson için düğmeye bastı...</marquee>
+</div>
+
+<!-- Puan Durumu -->
+<div class="standings-section">
+    <h3>🏆 Süper Lig Puan Durumu (31. Hafta)</h3>
+    <table class="standings-table">
+        <thead>
+            <tr>
+                <th>Sıra</th>
+                <th>Takım</th>
+                <th>O</th>
+                <th>G</th>
+                <th>B</th>
+                <th>M</th>
+                <th>P</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Galatasaray</td><td>31</td><td>23</td><td>5</td><td>3</td><td>74</td></tr>
+            <tr class="fb-row"><td>2</td><td>Fenerbahçe</td><td>31</td><td>19</td><td>10</td><td>2</td><td>67</td></tr>
+            <tr><td>3</td><td>Trabzonspor</td><td>31</td><td>19</td><td>8</td><td>4</td><td>65</td></tr>
+            <tr><td>4</td><td>Beşiktaş</td><td>31</td><td>16</td><td>8</td><td>7</td><td>56</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Haberler -->
+<div class="news-grid">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=500" alt="Transfer">
+        <div class="card-body">
+            <span class="tag">TRANSFER</span>
+            <h2 class="card-title">59 Milyon Euro'luk Piyango!</h2>
+            <p class="card-text">Avrupa devleri Archie Brown, Jayden Oosterwolde ve Dorgeles Nene için toplam 59 Milyon Euro'luk teklif paketini yönetime sundu.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=500" alt="Nicolas Jackson">
+        <div class="card-body">
+            <span class="tag">FLAŞ HABER</span>
+            <h2 class="card-title">Nicolas Jackson Bombası</h2>
+            <p class="card-text">Fenerbahçe, Chelsea'nin yıldız forveti Nicolas Jackson'ı kadrosuna katmak için sezon sonu planlarını hazırladı.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=500" alt="Basketbol">
+        <div class="card-body">
+            <span class="tag">BASKETBOL</span>
+            <h2 class="card-title">EuroLeague'de Zafer!</h2>
+            <p class="card-text">Fenerbahçe Beko, Zalgiris Kaunas'ı 89-78 yenerek play-off serisinde 1-0 öne geçti ve Atina yolunda dev bir adım attı.</p>
+        </div>
+    </div>
+</div>
+
+<footer><p>FenerNews © 2026 - Sarı Lacivert Sevda</p></footer>
+
+</body>
+  </html>
