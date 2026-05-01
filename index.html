@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LigPro | Dünya Ligleri Merkezi</title>
+    <style>
+        :root {
+            --ana-renk: #fedd00; /* LigPro Sarısı */
+            --arka-plan: #0a0a0a;
+            --kart-plan: #161616;
+            --yazi: #ffffff;
+            --fb-mavi: #002366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--arka-plan);
+            color: var(--yazi);
+        }
+
+        /* LigPro Header */
+        header {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 3px solid var(--ana-renk);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+
+        .logo span { color: var(--ana-renk); }
+
+        /* Canlı Skor / Liderler Bandı */
+        .live-bar {
+            background: var(--ana-renk);
+            color: #000;
+            padding: 8px 0;
+            font-weight: 800;
+            font-size: 13px;
+            border-bottom: 2px solid #000;
+        }
+
+        /* Lig Kartları Gridi */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--kart-plan);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #333;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--ana-renk);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .league-name {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; color: #666; font-size: 12px; text-transform: uppercase; padding-bottom: 10px; }
+        td { padding: 10px 5px; border-bottom: 1px solid #222; font-size: 14px; }
+
+        .rank-1 { color: #00ff88; font-weight: bold; }
+        .fb-row { color: var(--ana-renk); font-weight: bold; }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #000;
+            color: #444;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="logo">LIG<span>PRO</span></h1>
+</header>
+
+<div class="live-bar">
+    <marquee scrollamount="8">
+        LIGPRO GLOBAL ÖZET • 🇹🇷 SÜPER LİG: Galatasaray (74) • 🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE: Man City (79) • 🇪🇸 LA LIGA: Real Madrid (84) • 🇮🇹 SERIE A: Inter (86) • 🇩🇪 BUNDESLIGA: Leverkusen (81) • 🇫🇷 LIGUE 1: PSG (70) • 🇳🇱 EREDIVISIE: PSV (81) • 🇵🇹 LIGA PORTUGAL: Sporting (80) • 🇧🇪 PRO LEAGUE: Anderlecht (43) • 🏴󠁧󠁢󠁳󠁣󠁴󠁿 PREMIERSHIP: Celtic (78)
+    </marquee>
+</div>
+
+<div class="grid-container">
+    <!-- Süper Lig -->
+    <div class="card">
+        <div class="league-name">🇹🇷 SÜPER LİG</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>Galatasaray</td><td>74</td></tr>
+            <tr class="fb-row"><td>2</td><td>Fenerbahçe</td><td>67</td></tr>
+            <tr><td>3</td><td>Trabzonspor</td><td>65</td></tr>
+        </table>
+    </div>
+
+    <!-- Premier League -->
+    <div class="card">
+        <div class="league-name">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>Man. City</td><td>79</td></tr>
+            <tr><td>2</td><td>Arsenal</td><td>77</td></tr>
+            <tr><td>3</td><td>Liverpool</td><td>74</td></tr>
+        </table>
+    </div>
+
+    <!-- La Liga -->
+    <div class="card">
+        <div class="league-name">🇪🇸 LA LIGA</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>Real Madrid</td><td>84</td></tr>
+            <tr><td>2</td><td>Barcelona</td><td>73</td></tr>
+            <tr><td>3</td><td>Girona</td><td>71</td></tr>
+        </table>
+    </div>
+
+    <!-- Serie A -->
+    <div class="card">
+        <div class="league-name">🇮🇹 SERIE A</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>Inter</td><td>86</td></tr>
+            <tr><td>2</td><td>Milan</td><td>70</td></tr>
+            <tr><td>3</td><td>Juventus</td><td>65</td></tr>
+        </table>
+    </div>
+
+    <!-- Bundesliga -->
+    <div class="card">
+        <div class="league-name">🇩🇪 BUNDESLIGA</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>B. Leverkusen</td><td>81</td></tr>
+            <tr><td>2</td><td>Bayern Münih</td><td>69</td></tr>
+            <tr><td>3</td><td>Stuttgart</td><td>67</td></tr>
+        </table>
+    </div>
+
+    <!-- Ligue 1 -->
+    <div class="card">
+        <div class="league-name">🇫🇷 LIGUE 1</div>
+        <table>
+            <tr><th>#</th><th>TAKIM</th><th>P</th></tr>
+            <tr class="rank-1"><td>1</td><td>PSG</td><td>70</td></tr>
+            <tr><td>2</td><td>Monaco</td><td>58</td></tr>
+            <tr><td>3</td><td>Brest</td><td>53</td></tr>
+        </table>
+    </div>
+
+    <!-- Diğer Ligler için de benzer kartlar eklenebilir -->
+</div>
+
+<footer>
+    <p>LIGPRO - Dünya Ligleri Veri Tabanı © 2026</p>
+</footer>
+
+</body>
+  </html>
